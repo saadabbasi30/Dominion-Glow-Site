@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dominion Glow | Bespoke Permanent Lighting — Northern Virginia</title>
+<meta name="description" content="Dominion Glow designs and installs bespoke permanent architectural lighting for homes across Loudoun, Fairfax, Prince William, Stafford, and Fredericksburg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --onyx:#0A0A0B;
+    --onyx-soft:#141317;
+    --panel:#17161B;
+    --gold:#C9A24C;
+    --gold-light:#E8CE8F;
+    --ivory:#F4EFE6;
+    --stone:#948C7E;
+    --stone-dim:#5C574E;
+    --hairline:rgba(244,239,230,0.1);
+    --dusk-top:#141826;
+    --dusk-bot:#0A0A0B;
+    --light-color:#F2C879;
+    --glow-strength:0.4;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--onyx);
+    color:var(--ivory);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-size:0.72rem;
+    font-weight:500;
+    color:var(--gold);
+    display:block;
+  }
+
+  /* header */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,11,0.75);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:22px;padding-bottom:22px;
+  }
+  .logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:500;letter-spacing:0.02em;}
+  .logo em{font-style:italic;color:var(--gold);}
+  .header-actions{display:flex;align-items:center;gap:28px;}
+  .phone-link{font-size:0.92rem;color:var(--stone);text-decoration:none;letter-spacing:0.02em;}
+  .phone-link:hover{color:var(--gold);}
+  .btn{
+    display:inline-block;padding:13px 28px;border-radius:2px;
+    font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.12em;
+    text-decoration:none;transition:all .2s ease;
+  }
+  .btn-primary{background:var(--gold);color:#1A1305;border:1px solid var(--gold);}
+  .btn-primary:hover{background:var(--gold-light);border-color:var(--gold-light);}
+  .btn-ghost{border:1px solid var(--hairline);color:var(--ivory);background:transparent;}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible{
+    outline:1px solid var(--gold);outline-offset:3px;
+  }
+
+  /* hero */
+  .hero{
+    position:relative;
+    padding:120px 0 100px;
+    background:linear-gradient(180deg, var(--dusk-top) 0%, var(--dusk-bot) 100%);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,162,76,0.10) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;max-width:800px;text-align:left;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.6vw, 4.2rem);
+    line-height:1.06;font-weight:400;margin:22px 0 26px;color:var(--ivory);
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-light);}
+  .hero p.lede{
+    font-size:1.12rem;line-height:1.65;color:var(--stone);max-width:50ch;margin-bottom:36px;font-weight:300;
+  }
+  .hero-ctas{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:9px;font-size:0.78rem;color:var(--stone-dim);letter-spacing:0.03em;}
+  .hero-tags span{border:1px solid var(--hairline);padding:6px 14px;border-radius:2px;}
+
+  /* section basics */
+  .section{padding:110px 0;}
+  .section-head{max-width:58ch;margin-bottom:60px;}
+  .section-head h2{font-size:clamp(2rem,3.6vw,2.7rem);font-weight:400;margin-top:18px;line-height:1.2;}
+  .section-head p.sub{color:var(--stone);font-size:1rem;line-height:1.65;max-width:56ch;margin-top:16px;font-weight:300;}
+
+  /* pillars (merged guarantee + benefits) */
+  .pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);}
+  .pillar{background:var(--onyx);padding:36px 28px;}
+  .pillar .roman{font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:1.2rem;display:block;margin-bottom:16px;}
+  .pillar h3{font-size:1.02rem;font-weight:500;margin-bottom:10px;color:var(--ivory);}
+  .pillar p{font-size:0.9rem;line-height:1.6;color:var(--stone);margin:0;font-weight:300;}
+
+  .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 40px;}
+  .benefit{border-top:1px solid var(--hairline);padding-top:26px;}
+  .benefit .num{font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:1.1rem;display:block;margin-bottom:14px;}
+  .benefit h3{font-size:1.1rem;font-weight:500;margin-bottom:12px;color:var(--ivory);}
+  .benefit p{font-size:0.94rem;line-height:1.65;color:var(--stone);margin:0;font-weight:300;}
+
+  /* preview / interactive demo */
+  .preview-section{background:var(--onyx-soft);}
+  .preview-section .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;}
+  .preview-copy p{color:var(--stone);line-height:1.7;font-size:1rem;max-width:40ch;margin:18px 0 0;font-weight:300;}
+
+  .scene{background:var(--panel);border:1px solid var(--hairline);border-radius:2px;padding:28px 28px 24px;}
+  .scene-canvas{width:100%;display:block;}
+  #roofline{
+    stroke:var(--light-color);stroke-width:4;fill:none;stroke-linecap:round;
+    filter:drop-shadow(0 0 calc(6px + 14px * var(--glow-strength)) var(--light-color));
+    opacity:calc(0.25 + 0.75 * var(--glow-strength));
+    transition:stroke 0.25s ease, opacity 0.3s ease, filter 0.3s ease;
+  }
+  #accent-lights circle{
+    fill:var(--light-color);
+    filter:drop-shadow(0 0 calc(3px + 8px * var(--glow-strength)) var(--light-color));
+    opacity:calc(0.25 + 0.75 * var(--glow-strength));
+    transition:fill 0.25s ease, opacity 0.3s ease;
+  }
+  .window{fill:#2A2820;transition:fill 0.4s ease;}
+  .window.lit{fill:#E8CE8F;}
+
+  .scene-controls{margin-top:18px;}
+  .slider-row{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+  .slider-label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone-dim);width:52px;}
+  input[type="range"]{flex:1;-webkit-appearance:none;appearance:none;height:1px;background:var(--hairline);outline-offset:6px;}
+  input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--onyx);border:2px solid var(--gold);cursor:pointer;}
+  input[type="range"]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--onyx);border:2px solid var(--gold);cursor:pointer;}
+  .swatches{display:flex;gap:12px;flex-wrap:wrap;}
+  .swatch{width:26px;height:26px;border-radius:50%;border:1px solid var(--hairline);cursor:pointer;padding:0;}
+  .swatch.active{border:2px solid var(--ivory);}
+  .swatch-caption{font-size:0.72rem;color:var(--stone-dim);margin-top:12px;letter-spacing:0.02em;}
+
+  /* process */
+  .process-list{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;}
+  .process-step{border-top:1px solid var(--hairline);padding-top:26px;}
+  .process-step .roman{font-family:'Fraunces',serif;font-style:italic;font-size:1.6rem;color:var(--gold);display:block;margin-bottom:16px;}
+  .process-step h3{font-size:1.1rem;font-weight:500;margin-bottom:12px;}
+  .process-step p{color:var(--stone);font-size:0.94rem;line-height:1.65;margin:0;font-weight:300;}
+
+  /* service areas */
+  .areas-section .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .area-list{display:flex;flex-wrap:wrap;gap:12px;}
+  .area-chip{font-size:0.85rem;letter-spacing:0.03em;padding:10px 18px;border-radius:2px;border:1px solid var(--hairline);color:var(--ivory);}
+  .area-note{color:var(--stone);font-size:0.98rem;line-height:1.7;margin-top:20px;max-width:42ch;font-weight:300;}
+
+  /* FAQ */
+  .faq-section{background:var(--onyx-soft);}
+  .faq-list{max-width:840px;}
+  .faq-item{border-top:1px solid var(--hairline);}
+  .faq-item:last-child{border-bottom:1px solid var(--hairline);}
+  .faq-item summary{
+    list-style:none;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;
+    padding:26px 4px;
+    font-family:'Fraunces',serif;font-size:1.08rem;font-weight:400;color:var(--ivory);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{
+    flex-shrink:0;width:22px;height:22px;position:relative;color:var(--gold);
+  }
+  .faq-item summary .plus::before, .faq-item summary .plus::after{
+    content:"";position:absolute;background:var(--gold);transition:transform 0.2s ease;
+  }
+  .faq-item summary .plus::before{left:0;top:50%;width:100%;height:1px;transform:translateY(-50%);}
+  .faq-item summary .plus::after{top:0;left:50%;width:1px;height:100%;transform:translateX(-50%);}
+  .faq-item[open] summary .plus::after{transform:translateX(-50%) rotate(90deg);opacity:0;}
+  .faq-item .faq-answer{padding:0 4px 26px;max-width:70ch;}
+  .faq-item .faq-answer p{color:var(--stone);font-size:0.96rem;line-height:1.7;margin:0;font-weight:300;}
+
+  /* quote form */
+  .quote-section{background:var(--onyx);}
+  .quote-section .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:start;}
+  .quote-intro h2{font-size:clamp(2rem,3.6vw,2.6rem);margin-top:18px;margin-bottom:20px;}
+  .quote-intro p{color:var(--stone);line-height:1.7;max-width:40ch;margin-bottom:32px;font-weight:300;}
+  .quote-intro .direct-contact{display:flex;flex-direction:column;gap:12px;font-size:0.95rem;}
+  .quote-intro .direct-contact a{text-decoration:none;color:var(--ivory);}
+  .quote-intro .direct-contact a:hover{color:var(--gold);}
+  .quote-intro .direct-contact span{color:var(--stone-dim);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;}
+
+  .quote-form{background:var(--panel);border:1px solid var(--hairline);border-radius:2px;padding:40px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+  .form-field{display:flex;flex-direction:column;gap:9px;margin-bottom:20px;}
+  .form-field label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone-dim);}
+  .form-field input, .form-field select, .form-field textarea{
+    background:var(--onyx);border:1px solid var(--hairline);border-radius:2px;padding:13px 15px;
+    color:var(--ivory);font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:300;
+  }
+  .form-field textarea{resize:vertical;min-height:92px;}
+  .form-field input::placeholder, .form-field textarea::placeholder{color:var(--stone-dim);}
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus{border-color:var(--gold);}
+  .form-submit{width:100%;border:none;cursor:pointer;font-family:'Inter',sans-serif;}
+  .form-note{font-size:0.78rem;color:var(--stone-dim);margin-top:16px;line-height:1.6;}
+  .honeypot{position:absolute;left:-9999px;opacity:0;}
+
+  /* footer */
+  .site-footer{padding:40px 0 48px;}
+  .footer-bottom{
+    border-top:1px solid var(--hairline);padding-top:32px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    font-size:0.82rem;color:var(--stone-dim);
+  }
+  .footer-bottom a{color:var(--stone);text-decoration:none;}
+  .footer-bottom a:hover{color:var(--gold);}
+
+  @media (max-width:900px){
+    .preview-section .wrap, .areas-section .wrap, .quote-section .wrap{grid-template-columns:1fr;}
+    .benefits-grid, .process-list{grid-template-columns:1fr;}
+    .pillars-grid{grid-template-columns:1fr 1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .header-actions .btn-primary{display:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="logo">Dominion <em>Glow</em></div>
+    <div class="header-actions">
+      <a class="phone-link" href="tel:5407357982">540-735-7982</a>
+      <a class="btn btn-primary" href="#quote">Request a Consultation</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="wrap">
+    <span class="eyebrow">Bespoke Permanent Lighting</span>
+    <h1>One system. <em>Every</em> occasion. No ladder, ever again.</h1>
+    <p class="lede">Dominion Glow designs and installs permanent architectural lighting along your roofline — a single discreet install that adapts to any color, any holiday, any night of the year, all from your phone.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#quote">Request a Consultation</a>
+      <a class="btn btn-ghost" href="tel:5407357982">Call 540-735-7982</a>
+    </div>
+    <div class="hero-tags">
+      <span>Loudoun County</span>
+      <span>Fairfax County</span>
+      <span>Prince William</span>
+      <span>Stafford</span>
+      <span>Fredericksburg</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pillars">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why Dominion Glow</span>
+      <h2>Built on quality, service, and a system that's genuinely built to last.</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <span class="roman">I.</span>
+        <h3>Quality materials</h3>
+        <p>Commercial-grade fixtures selected to hold their color and finish through Virginia's full range of weather.</p>
+      </div>
+      <div class="pillar">
+        <span class="roman">II.</span>
+        <h3>Attentive service</h3>
+        <p>From your first call to years down the line, you're working with a local team that answers the phone.</p>
+      </div>
+      <div class="pillar">
+        <span class="roman">III.</span>
+        <h3>Careful installation</h3>
+        <p>Fixtures fit flush to your roofline, wired cleanly, and tested on-site before we consider the job done.</p>
+      </div>
+      <div class="pillar">
+        <span class="roman">IV.</span>
+        <h3>Real follow-through</h3>
+        <p>If something needs attention after install, we're a phone call away — not a form buried on a website.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="benefits" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The difference</span>
+      <h2>A single, disappearing system — built to outlast the trend it started.</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <span class="num">I.</span>
+        <h3>Every color, on command</h3>
+        <p>Warm white for evenings at home, holiday palettes for December, team colors for game day — set entirely from your phone.</p>
+      </div>
+      <div class="benefit">
+        <span class="num">II.</span>
+        <h3>Installed once, enjoyed always</h3>
+        <p>The fixture lives flush along your roofline year-round. No seasonal install, no seasonal takedown, no seasonal invoice.</p>
+      </div>
+      <div class="benefit">
+        <span class="num">III.</span>
+        <h3>Nearly invisible by day</h3>
+        <p>The channel sits discreetly along your roofline — unnoticed in daylight, until the moment you switch it on.</p>
+      </div>
+      <div class="benefit">
+        <span class="num">IV.</span>
+        <h3>An immediate lift in presence</h3>
+        <p>A precisely lit roofline reads as a meticulously kept home — whether you're entertaining or simply arriving after dark.</p>
+      </div>
+      <div class="benefit">
+        <span class="num">V.</span>
+        <h3>Quiet security, built in</h3>
+        <p>A well-lit exterior makes a property easier to see and considerably less appealing to pass by unnoticed.</p>
+      </div>
+      <div class="benefit">
+        <span class="num">VI.</span>
+        <h3>Scheduling that runs itself</h3>
+        <p>Sunset-based timers and saved presets mean the right light, every evening, without a second thought.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section preview-section" id="preview">
+  <div class="wrap">
+    <div class="preview-copy">
+      <span class="eyebrow">See it glow</span>
+      <h2 style="font-size:clamp(1.9rem,3.2vw,2.4rem);margin-top:18px;">One tap, and the evening changes.</h2>
+      <p>Move the slider toward night and choose a color — this is the same control you'll have over your own roofline, from anywhere.</p>
+    </div>
+
+    <div class="scene">
+      <svg class="scene-canvas" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="220" width="400" height="40" fill="#050505"/>
+        <rect x="90" y="140" width="220" height="82" fill="#1C1A20"/>
+        <rect class="window lit" x="120" y="165" width="34" height="40" rx="1"/>
+        <rect class="window lit" x="184" y="165" width="34" height="40" rx="1"/>
+        <rect class="window" x="248" y="165" width="34" height="40" rx="1"/>
+        <polygon points="80,140 200,68 320,140" fill="#141218" stroke="#050505" stroke-width="2"/>
+        <path id="roofline" d="M84,138 L200,70 L316,138"/>
+        <g id="accent-lights">
+          <circle cx="84" cy="138" r="2.6"/>
+          <circle cx="142" cy="104" r="2.6"/>
+          <circle cx="200" cy="70" r="2.6"/>
+          <circle cx="258" cy="104" r="2.6"/>
+          <circle cx="316" cy="138" r="2.6"/>
+        </g>
+      </svg>
+
+      <div class="scene-controls">
+        <div class="slider-row">
+          <span class="slider-label">Dusk</span>
+          <input type="range" id="timeSlider" min="0" max="100" value="35" aria-label="Adjust time of day from dusk to night">
+          <span class="slider-label" style="text-align:right;">Night</span>
+        </div>
+        <div class="swatches" role="group" aria-label="Choose light color">
+          <button class="swatch active" style="background:#F2C879" data-color="#F2C879" aria-label="Warm white"></button>
+          <button class="swatch" style="background:#C4453C" data-color="#C4453C" aria-label="Red"></button>
+          <button class="swatch" style="background:#3D8A5E" data-color="#3D8A5E" aria-label="Green"></button>
+          <button class="swatch" style="background:#4A75B8" data-color="#4A75B8" aria-label="Blue"></button>
+          <button class="swatch" style="background:#8E5CB0" data-color="#8E5CB0" aria-label="Purple"></button>
+        </div>
+        <div class="swatch-caption">Drag the slider. Tap a color. That's the app, on your roofline.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From first call to first glow.</h2>
+    </div>
+    <div class="process-list">
+      <div class="process-step">
+        <span class="roman">I</span>
+        <h3>No-obligation design consult</h3>
+        <p>We walk your property, discuss your ideas and budget, and prepare a custom lighting plan and estimate.</p>
+      </div>
+      <div class="process-step">
+        <span class="roman">II</span>
+        <h3>Precise, unobtrusive install</h3>
+        <p>Our crew fits the channel lighting flush along your roofline, wired and tested — without disrupting your day.</p>
+      </div>
+      <div class="process-step">
+        <span class="roman">III</span>
+        <h3>Control from your phone</h3>
+        <p>Set your colors, schedules, and seasonal presets in the app. We're a call away for anything after that.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section areas-section" id="areas">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Where we work</span>
+      <h2 style="font-size:clamp(1.9rem,3.2vw,2.4rem);margin-top:18px;">Serving Northern Virginia and the Fredericksburg area</h2>
+      <p class="area-note">Based locally and built for the region — from Loudoun's newer estates to the historic streets of Fredericksburg.</p>
+    </div>
+    <div class="area-list">
+      <span class="area-chip">Loudoun County</span>
+      <span class="area-chip">Fairfax County</span>
+      <span class="area-chip">Prince William County</span>
+      <span class="area-chip">Stafford County</span>
+      <span class="area-chip">Fredericksburg</span>
+      <span class="area-chip">& surrounding areas</span>
+    </div>
+  </div>
+</section>
+
+<section class="section faq-section" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Need answers?</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>What exactly is permanent lighting?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>It's a weatherproof lighting channel installed once along your roofline or trim and left in place year-round, rather than strung up and taken down for each holiday. It stays out of sight during the day and switches on to whatever color or pattern suits the occasion — from a quiet warm white on a Tuesday to a full holiday display in December.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How much does an installation cost?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>It depends on the length of your roofline, the layout of your home, and the design you choose. Rather than quote a generic number that may not apply to your property, we'll walk your home and give you a firm estimate as part of your free consultation.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to supply my own lights?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>No — we provide the fixtures as part of the install, using commercial-grade materials chosen to hold up for years. Once installed, the system is yours.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens during the design consultation?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>We'll walk your property together, talk through your goals and budget, and put together a design and estimate specific to your home. There's no obligation to move forward afterward.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How disruptive is installation, and what about maintenance later?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Installation happens entirely outside your home, so you don't need to rearrange your schedule around it. Afterward, if anything needs attention, you can reach us directly rather than navigating a call center.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I change the colors or patterns?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Everything is controlled from an app on your phone. You can switch colors instantly, save presets for holidays or game days, and set schedules so your lights turn on and off automatically at sunset and sunrise.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work with businesses as well as homeowners?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Yes. We install for both residential properties and commercial buildings across our service area.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does the lighting typically last?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Well-installed, well-maintained permanent lighting is built to perform for years, not seasons. The biggest factors are fixture quality and proper installation — both of which we control closely, since we're the ones who'll be standing behind the work.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section" id="quote" style="padding:120px 0;">
+  <div class="wrap">
+    <div class="quote-intro">
+      <span class="eyebrow">Request a consultation</span>
+      <h2>Ready to see your roofline glow?</h2>
+      <p>Tell us about your property and we'll follow up with a private design consultation and estimate — usually within one business day.</p>
+      <div class="direct-contact">
+        <span>Prefer to call or email?</span>
+        <a href="tel:5407357982">540-735-7982</a>
+        <a href="mailto:info@dominionglowva.com">info@dominionglowva.com</a>
+      </div>
+    </div>
+
+    <form class="quote-form" action="https://formsubmit.co/info@dominionglowva.com" method="POST">
+      <input type="hidden" name="_subject" value="New quote request — Dominion Glow website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="Name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="Phone" placeholder="(540) 555-0123" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" placeholder="jane@email.com" required>
+        </div>
+        <div class="form-field">
+          <label for="city">Service area</label>
+          <select id="city" name="Service Area" required>
+            <option value="" disabled selected>Select a county or city</option>
+            <option>Loudoun County</option>
+            <option>Fairfax County</option>
+            <option>Prince William County</option>
+            <option>Stafford County</option>
+            <option>Fredericksburg</option>
+            <option>Other / not sure</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="message">Tell us about your property</label>
+        <textarea id="message" name="Message" placeholder="Roofline length, current lighting, timeline, anything else that helps us prepare your quote."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary form-submit">Request My Consultation</button>
+      <p class="form-note">We'll only use this to reach you about your consultation — no spam, no shared lists.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 Dominion Glow. All rights reserved.</span>
+      <span><a href="https://dominionglowva.com">dominionglowva.com</a> · <a href="tel:5407357982">540-735-7982</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const slider = document.getElementById('timeSlider');
+  const root = document.documentElement;
+  const swatches = document.querySelectorAll('.swatch');
+
+  function updateScene(){
+    const t = slider.value / 100;
+    root.style.setProperty('--glow-strength', (0.2 + t * 0.8).toFixed(2));
+  }
+
+  slider.addEventListener('input', updateScene);
+  updateScene();
+
+  swatches.forEach(btn => {
+    btn.addEventListener('click', () => {
+      swatches.forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      root.style.setProperty('--light-color', btn.dataset.color);
+    });
+  });
+</script>
+
+</body>
+</html>
